@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>coucou</title>
+</head>
+
+<body>
+    <label for="number">Entrez un nombre entre <span id="min">1</span> et <span id="max">100</span>
+        <input type="text" id="x">
+    </label>
+    <button id="btn">OK</button>
+    
+    <div id="results"></div>
+    
+    <script>
+        let minimum = 1
+        let maximum = 100
+
+        document.getElementById('max').innerText = maximum 
+        document.getElementById('min').innerText = minimum
+        
+        let nbRandom = random(minimum, maximum);
+        console.log(nbRandom)
+        let action;        //variable
+
+        action = document.getElementById("btn");
+        action.addEventListener('click', () => {
+
+
+            // prendre la valeur dans input#x
+            let control = document.getElementById('x');
+            let x = control.value;
+
+            let display = document.getElementById('results')
+            
+            if (x > nbRandom) {
+                display.innerText = (x + " est trop grand (" + nbRandom + ")"); //document.write("x est trop grand");
+            } else if (x < nbRandom) {
+                display.innerText = (x + " est trop petit (" + nbRandom + ")");
+            } else {
+                display.innerText = (x + " est exact");
+            }
+
+
+
+            //comparer valeur  avec random
+            // afficher result
+        })
+
+
+
+        function random(min, max) {
+            return Math.floor(Math.random() * max) + min
+        }
+
+
+    </script>
+</body>
+
+</html>
