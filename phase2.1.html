@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="number">Entrez un nombre entre <span id="min">1</span> et <span id="max">100</span>
+        <input type="text" id="x">
+    </label>
+
+    <button id="button">OK</button>
+    <button id="refresh"><a href="phase2.1.html">refresh</a></button><!--premier solution: lien de l'index dans le button-->
+
+    <div id="results"></div>
+
+    <script>
+        let minimum = 1;
+        let maximum = 100;
+
+        document.getElementById("min").innerText = minimum;
+        document.getElementById("max").innerText = maximum;
+
+        let nbRandom = random(minimum, maximum); //oublié (relié avec functio random)
+        console.log(nbRandom);
+
+        let action;
+        action = document.getElementById("button").relo;
+        document.getElementById("refresh").action.addEventListener("click", () => {//2eme solution
+            location.reload();
+
+            let control = document.getElementById('x');
+            let x = control.value;
+
+            let display = document.getElementById('results');
+
+            if (x > nbRandom) {
+                display.innerText = (x + " est trop grand (" + nbRandom + ")"); //document.write("x est trop grand");
+            } else if (x < nbRandom) {
+                display.innerText = (x + " est trop petit (" + nbRandom + ")");
+            } else {
+                display.innerText = (x + " est exact");
+            }
+
+
+        })
+
+        function random(min, max) {
+            return Math.floor(Math.random() * max) + min
+        }
+        
+    </script>
+</body>
+    
+</html>
